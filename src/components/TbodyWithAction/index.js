@@ -20,8 +20,8 @@ function TbodyWithAction({
       {status === 'process' ? (
         <tr>
           <td colSpan={display.length + 1} style={{ textAlign: 'center' }}>
-            <div className='flex items-center justify-center'>
-              <Spinner animation='border' variant='primary' />
+            <div className="flex items-center justify-center">
+              <Spinner animation="border" variant="primary" />
             </div>
           </td>
         </tr>
@@ -53,7 +53,7 @@ function TbodyWithAction({
                   {customAction && customAction(data._id, data.statusEvent)}
                   {editUrl && (
                     <Button
-                      variant='success'
+                      variant="success"
                       size={'sm'}
                       action={() => navigate(`${editUrl}/${data._id}`)}
                     >
@@ -63,7 +63,7 @@ function TbodyWithAction({
                   {deleteAction && (
                     <Button
                       className={'mx-2'}
-                      variant='danger'
+                      variant="danger"
                       size={'sm'}
                       action={() => deleteAction(data._id)}
                     >
