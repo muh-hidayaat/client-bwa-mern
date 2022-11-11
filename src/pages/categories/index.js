@@ -72,7 +72,7 @@ function Categories() {
 
   return (
     <Container className="mt-3">
-      <SBreadCrumb textSecound={'Categories'} />
+      <SBreadCrumb textSecond={'Categories'} />
 
       {access.tambah && (
         <Button

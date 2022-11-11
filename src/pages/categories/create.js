@@ -54,8 +54,8 @@ function CategoryCreate() {
   return (
     <Container>
       <SBreadCrumb
-        textSecound={'Categories'}
-        urlSecound={'/categories'}
+        textSecond={'Categories'}
+        urlSecond={'/categories'}
         textThird="Create"
       />
       {alert.status && <SAlert type={alert.type} message={alert.message} />}
