@@ -42,16 +42,16 @@ export const fetchOrders = () => {
         dispatch(clearNotif());
       }, 5000);
 
-      let params = {
-        page: getState().orders?.page || 1,
-        limit: getState().orders?.limit || 10,
-        startDate: moment(getState().orders?.date?.startDate).format(
-          'YYYY-MM-DD'
-        ),
-        endDate: moment(getState().orders?.date?.endDate).format('YYYY-MM-DD'),
-      };
+      // let params = {
+      //   page: getState().orders?.page || 1,
+      //   limit: getState().orders?.limit || 10,
+      //   startDate: moment(getState().orders?.date?.startDate).format(
+      //     'YYYY-MM-DD'
+      //   ),
+      //   endDate: moment(getState().orders?.date?.endDate).format('YYYY-MM-DD'),
+      // };
 
-      let res = await debouncedFetchOrders('/cms/orders', params);
+      let res = await debouncedFetchOrders('/cms/orders');
 
       const _temp = [];
       res.data.data.order.forEach((res) => {

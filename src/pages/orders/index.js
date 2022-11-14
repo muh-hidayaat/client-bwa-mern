@@ -1,25 +1,28 @@
 import React, { useEffect } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import BreadCrumb from '../../components/Breadcrumb';
 import Button from '../../components/Button';
 import Table from '../../components/TableWithAction';
-import SearchInput from '../../components/SearchInput';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchOrders, setPage, setDate } from '../../redux/orders/actions';
-import AlertMessage from '../../components/Alert';
+import { fetchOrders, setPage } from '../../redux/orders/actions';
 import { fetchListEvents } from '../../redux/lists/actions';
-import DateRange from '../../components/InputDate';
-import { formatDate } from '../../utils/formatDate';
+import { Container } from 'react-bootstrap';
+
+//Pakai filter tanggal
+
+// import { formatDate } from '../../utils/formatDate';
+// import { fetchOrders, setPage, setDate } from '../../redux/orders/actions';
+// import { Col, Container, Row } from 'react-bootstrap';
+// import DateRange from '../../components/InputDate';
+// import SearchInput from '../../components/SearchInput';
 
 function OrderPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth);
-  const notif = useSelector((state) => state.notif);
   const orders = useSelector((state) => state.orders);
 
-  let [isShowed, setIsShowed] = React.useState(false);
+  // let [isShowed, setIsShowed] = React.useState(false);
 
   useEffect(() => {
     return () => {
@@ -35,15 +38,15 @@ function OrderPage() {
     dispatch(fetchListEvents());
   }, [dispatch]);
 
-  const displayDate = `${
-    orders.date?.startDate ? formatDate(orders.date?.startDate) : ''
-  }${orders.date?.endDate ? ' - ' + formatDate(orders.date.endDate) : ''}`;
+  // const displayDate = `${
+  //   orders.date?.startDate ? formatDate(orders.date?.startDate) : ''
+  // }${orders.date?.endDate ? ' - ' + formatDate(orders.date.endDate) : ''}`;
 
   return (
     <Container className="mt-3">
       <Button action={() => navigate('/orders/create')}>Tambah</Button>
       <BreadCrumb textSecond={'Orders'} />
-      <Row>
+      {/* <Row>
         <Col
           className="cursor-pointer position-relative"
           onClick={() => setIsShowed(true)}
@@ -61,11 +64,8 @@ function OrderPage() {
         </Col>
         <Col></Col>
         <Col></Col>
-      </Row>
+      </Row> */}
 
-      {notif.status && (
-        <AlertMessage type={notif.typeNotif} message={notif.message} />
-      )}
       <Table
         status={orders.status}
         thead={[
