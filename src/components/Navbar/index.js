@@ -9,6 +9,8 @@ import {
   accessParticipant,
   accessPayments,
   accessOrders,
+  accessOrganizers,
+  accessAdmin,
 } from '../../const/access';
 
 function SNavbar() {
@@ -64,13 +66,20 @@ function SNavbar() {
           >
             Payment
           </NavLink>
-          {/* <NavLink
+          <NavLink
             role={role}
-            roles={organizers.lihat}
+            roles={accessOrganizers.lihat}
             action={() => navigate('/organizers')}
           >
-            Oranizer
-          </NavLink> */}
+            Organizer
+          </NavLink>
+          <NavLink
+            role={role}
+            roles={accessAdmin.lihat}
+            action={() => navigate('/admin')}
+          >
+            Admin
+          </NavLink>
           <NavLink
             role={role}
             roles={accessEvents.lihat}
